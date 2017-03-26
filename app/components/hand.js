@@ -2,16 +2,6 @@ import React, { PropTypes } from 'react';
 import Card from './card';
 
 /**
- * Hand component
- *
- * Renders:
- * score
- * cards
- *
- * @return {ReactElement} markup
- */
-
-/**
  * Hand component where dealt cards are rendered.
  *
  * @class      Hand (name)

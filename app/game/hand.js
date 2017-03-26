@@ -75,21 +75,17 @@ export default class Hand {
      * Sets initial states for _hand and _stats.
      */
     constructor() {
-        _hand.set(this, []);
-        _stats.set(this, {
-            softTotal: 0,
-            hardTotal: 0,
-        });
+        this.clear();
     }
 
     /**
-     * Adds a card to the hand
-     * On each add collect stats
+     * Draws a card to the hand
+     * On each card draw, update score stats
      *
      * @param      {Object}  card    The card.
      * @return     {Object}  Added card to the hand.
      */
-    add(card) {
+    draw(card) {
         // adds a card to the hand
         let hand = _hand.get(this);
         hand.push(card);
@@ -102,11 +98,22 @@ export default class Hand {
     }
 
     /**
+     * Sets the vars to the original state.
+     */
+    clear() {
+        _hand.set(this, []);
+        _stats.set(this, {
+            softTotal: 0,
+            hardTotal: 0,
+        });
+    }
+
+    /**
      * Gets the total score.
      *
      * @return     {Integer}  The total score.
      */
-    getTotal() {
+    get scoreTotal() {
         return calculateTotal(_stats.get(this));
     }
 
@@ -117,7 +124,7 @@ export default class Hand {
      * @return     {Integer} stats.softTotal { Soft total }
      * @return     {Integer} stats.hardTotal { Hard total }
      */
-    getStats() {
+    get scoreStats() {
         return _stats.get(this);
     }
 
@@ -126,7 +133,25 @@ export default class Hand {
      *
      * @return     {Array}  Array of cards in the current hand
      */
-    getCards() {
+    get cards() {
         return _hand.get(this);
+    }
+
+    /**
+     * Determines if the hand is bust.
+     *
+     * @return     {boolean}  True if bust, False otherwise.
+     */
+    get isBust() {
+        return this.scoreTotal > 21;
+    }
+
+    /**
+     * Determines if the hand has a blackjack.
+     *
+     * @return     {boolean}  True if has blackjack, False otherwise.
+     */
+    get hasBlackjack() {
+        return this.cards.length === 2 && this.scoreTotal === 21;
     }
 }
