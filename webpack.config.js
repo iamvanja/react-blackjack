@@ -1,8 +1,9 @@
 'use strict';
-var webpack = require('webpack');
-var DashboardPlugin = require('webpack-dashboard/plugin');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
-var config = {
+const config = {
     entry: [
         './app/index.js',
     ],
@@ -16,18 +17,38 @@ var config = {
                 test: /\.jsx?$/,
                 loaders: ['babel-loader', 'eslint-loader'],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.scss$/,
+                loaders: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            sourceMap: true,
+                        }
+                    },
+                    'postcss-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        }
+                    },
+                ]
             }
         ]
     },
     devServer: {
         contentBase: __dirname + '/build',
-        hot: true
+        hot: true,
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new DashboardPlugin(),
     ],
-    devtool: 'eval-source-map'
+    devtool: 'eval-source-map',
 };
 
 if (process.env.NODE_ENV === 'production') {
