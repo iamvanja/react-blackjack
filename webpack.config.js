@@ -1,5 +1,6 @@
 'use strict';
 var webpack = require('webpack');
+var DashboardPlugin = require('webpack-dashboard/plugin');
 
 var config = {
     entry: [
@@ -13,7 +14,7 @@ var config = {
         loaders: [
             {
                 test: /\.jsx?$/,
-                loaders: ['babel-loader'],
+                loaders: ['babel-loader', 'eslint-loader'],
                 exclude: /node_modules/
             }
         ]
@@ -24,6 +25,7 @@ var config = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
+        new DashboardPlugin(),
     ],
     devtool: 'eval-source-map'
 };

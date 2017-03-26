@@ -1,0 +1,18 @@
+{
+    "env": {
+        "browser": true,
+        "mocha": true,
+        "node": true
+    },
+    "parser": "babel-eslint",
+    "plugins": [
+      "react"
+    ],
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "rules": {
+        "no-console": "off",
+        "comma-dangle": ["error", "always-multiline"],
+        "no-unused-vars": "off",
+        "quotes": ["error", "single"]
+    }
+}
