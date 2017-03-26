@@ -1,8 +1,43 @@
 {
-  "name": "blackjack",
-  "version": "1.0.0",
-  "description": "Blackjack game",
-  "main": "index.js",
-  "author": "iamvanja <vanja@gavric.org>",
-  "license": "MIT"
+    "name": "blackjack",
+    "version": "1.0.0",
+    "description": "Blackjack game",
+    "author": "iamvanja <vanja@gavric.org>",
+    "license": "MIT",
+    "dependencies": {
+        "normalize.css": "^5.0.0",
+        "react": "^15.4.2",
+        "react-dom": "^15.4.2"
+    },
+    "devDependencies": {
+        "autoprefixer": "^6.7.7",
+        "babel-core": "^6.24.0",
+        "babel-eslint": "^7.2.1",
+        "babel-loader": "^6.4.1",
+        "babel-preset-es2015": "^6.24.0",
+        "babel-preset-react": "^6.23.0",
+        "chai": "^3.5.0",
+        "chai-enzyme": "^0.6.1",
+        "css-loader": "^0.27.3",
+        "enzyme": "^2.8.0",
+        "eslint": "^3.18.0",
+        "eslint-loader": "^1.7.0",
+        "eslint-plugin-react": "^6.10.3",
+        "mocha": "^3.2.0",
+        "node-sass": "^4.5.1",
+        "postcss-loader": "^1.3.3",
+        "react-addons-test-utils": "^15.4.2",
+        "react-hot-loader": "^1.3.1",
+        "sass-loader": "^6.0.3",
+        "style-loader": "^0.16.0",
+        "webpack": "^2.3.2",
+        "webpack-dashboard": "^0.3.0",
+        "webpack-dev-server": "^2.4.2"
+    },
+    "scripts": {
+        "start": "./node_modules/webpack-dashboard/bin/webpack-dashboard.js webpack-dev-server",
+        "build": "NODE_ENV=production webpack -p --config webpack.config.js",
+        "test": "mocha --compilers js:babel-core/register --recursive --require ./test/test-helper.js",
+        "test:watch": "npm run test -- --watch"
+    }
 }

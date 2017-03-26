@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    text-rendering: optimizeSpeed;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: $body-bg;
+}
