@@ -4,6 +4,10 @@
     "description": "Blackjack game",
     "author": "iamvanja <vanja@gavric.org>",
     "license": "MIT",
+    "dependencies": {
+        "react": "^15.4.2",
+        "react-dom": "^15.4.2"
+    },
     "devDependencies": {
         "babel-core": "^6.24.0",
         "babel-eslint": "^7.2.1",
