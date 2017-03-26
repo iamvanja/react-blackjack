@@ -1,0 +1,8 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0",
+  "description": "Blackjack game",
+  "main": "index.js",
+  "author": "iamvanja <vanja@gavric.org>",
+  "license": "MIT"
+}
