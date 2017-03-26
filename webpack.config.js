@@ -43,6 +43,7 @@ const config = {
     devServer: {
         contentBase: __dirname + '/build',
         hot: true,
+        host: '0.0.0.0',
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
