@@ -20,11 +20,12 @@ const Hand = ({ cards, score }) => {
                 </div>
             }
             <div className="cards">
-                <CSSTransitionGroup transitionName="list" transitionEnterTimeout={100} transitionLeaveTimeout={200}>
+                <CSSTransitionGroup transitionName="list" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
                     {cards.map((card, i) =>
                         <Card
                             rank={card.rank}
                             suit={card.suit}
+                            isFaceDown={card.rank === 'dummy'}
                             key={i}
                         />
                     )}

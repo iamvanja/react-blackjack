@@ -9,9 +9,10 @@ import React, { PropTypes } from 'react';
   * @param      {String}          props.suit  Card's suit
   * @return     {ReactElement}    markup
   */
-const Info = ({ rank, suit }) => {
+const Info = ({ rank, suit, isFaceDown }) => {
+    const faceDownClass = isFaceDown ? 'face-down' : '';
     return (
-        <div className={`card ${suit}`}>
+        <div className={`card ${suit} ${faceDownClass}`}>
             <div className="section top">
                 <div className="container">
                     <span className="rank">{rank}</span>
@@ -38,6 +39,7 @@ Info.propTypes = {
         PropTypes.number,
     ]).isRequired,
     suit: PropTypes.string.isRequired,
+    isFaceDown: PropTypes.bool.isRequired,
 };
 
 export default Info;
