@@ -7,8 +7,65 @@ html {
     overflow: hidden;
 }
 
+html,
+body,
+#root,
+.app {
+    width:100%;
+    height:100%;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background: $body-bg;
+    font-size: 16px;
+    position:relative;
+    background-color: $body-bg-color;
+    background-repeat: repeat;
+    background-image: url('/images/bg.png');
+    @media #{$retina} {
+        background-image: url('/images/bg-retina.png');
+        // todo: include ability in the build
+        // system to read image dimension
+        background-size: 100px 100px;
+    }
+    box-shadow: inset 1px 1px 120px 30px rgba(lighten(#000, 1%), 0.5);
+
+    // line
+    &:before {
+        $line-color: darken($secondary-color, 5%);
+        content: '';
+        position: absolute;
+        width: 100%;
+        // blend with the inset box-shadow
+        // from parent element
+        z-index:-1;
+        height: 2px;
+        background: $line-color;
+        bottom: 20%;
+        // make it more realistic
+        border-bottom: 1px solid darken($line-color, 50%);
+        border-top: 1px solid lighten($line-color, 50%);
+    }
+
+    // table edge (wood)
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        // blend with the inset box-shadow
+        // from parent element
+        z-index:-1;
+        height: 10%;
+        bottom: 0;
+        box-shadow: -1px -6px 16px -4px rgba(lighten(#000, 1%), 0.8);
+        // show bg-color while the image is loading
+        background-color: #271a11;
+        background-repeat: repeat;
+        background-image: url('/images/wood.jpg');
+        @media #{$retina} {
+
+            background-size: 200px 169px;
+        }
+    }
 }

@@ -1,0 +1,27 @@
+.hand {
+    .cards {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-self: auto;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        .card {
+            flex: 0 1 auto;
+            // guarantess some randomness
+            &:nth-child(odd) {
+                transform: rotate(-2deg);
+            }
+            &:nth-child(even) {
+                transform: rotate(2deg);
+            }
+            &.H {
+                transform: rotate(-1deg);
+            }
+            &.C {
+                transform: rotate(1deg);
+            }
+        }
+    }
+}
