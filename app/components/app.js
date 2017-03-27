@@ -216,7 +216,8 @@ class App extends Component {
                 <Hand cards={dealerHand} score={dealerScore} />
                 <Hand cards={playerHand} score={playerScore} />
                 <Controls
-                    dealDisabled={inProgress}
+                    inProgress={inProgress}
+                    gameOver={isWin !== undefined}
                     deal={() => this.onDeal()}
                     hit={() => this.onHit()}
                     stand={() => this.onStand()}
