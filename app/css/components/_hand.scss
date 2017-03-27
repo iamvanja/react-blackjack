@@ -38,7 +38,7 @@
 
         // animations for adding/removing cards
         .card {
-            transition: 0.2s $bezier;
+            transition: 0.2s $card-deal-bezier;
             &.list-enter {
                 transform: translate3d(100vw, -100vh, 0);
             }
