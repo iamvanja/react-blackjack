@@ -3,14 +3,14 @@ body {
     padding-top: 100px;
 }
 
-// push hand a bit so the card
-// placement looks more random
-// between two hands
-.app .hand {
-    .cards {
-        margin-left: 30px;
-    }
-    + .hand .cards {
-        margin-left: 60px;
-    }
-}
+// todo: flexbox layout:
+// header
+//     Info
+// section[role="main"]
+//      Hand
+//      Hand
+// footer
+//      nav
+//          Controls
+
+

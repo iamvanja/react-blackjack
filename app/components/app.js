@@ -61,6 +61,7 @@ class App extends Component {
      */
     onDeal() {
         let { deck, playerHand, dealerHand } = this.props;
+        const { roundCount } = this.state;
 
         // clear timeout in case the
         // deal button is pressed before
@@ -68,20 +69,26 @@ class App extends Component {
         this.clearTimeout();
         this.resetRound();
 
+        // shuffle deck every 6 rounds
+        if (roundCount % 6 === 0) {
+            deck.shuffle();
+        }
+
         // deal cards
         playerHand.draw(deck.deal());
         dealerHand.draw(deck.deal());
         playerHand.draw(deck.deal());
         // second card to dealer
-        // remains in the hand distance
-        // but we wont show it in the view
+        // remains in the hand instance
+        // but not in the view until
+        // the player stands
         dealerHand.draw(deck.deal());
 
         // set state to update the view
         this.setState((prevState, props) => ({
             playerHand: playerHand.cards,
-            // first card and the dummy card for
-            // the dealer's hand view
+            // first card and second dummy card
+            // for dealer's hand view
             dealerHand: [dealerHand.cards[0], {rank: 'dummy',  suit: ''}],
             playerScore: playerHand.scoreTotal,
             roundCount: ++prevState.roundCount,
@@ -209,7 +216,8 @@ class App extends Component {
                 <Hand cards={dealerHand} score={dealerScore} />
                 <Hand cards={playerHand} score={playerScore} />
                 <Controls
-                    dealDisabled={inProgress}
+                    inProgress={inProgress}
+                    gameOver={isWin !== undefined}
                     deal={() => this.onDeal()}
                     hit={() => this.onHit()}
                     stand={() => this.onStand()}

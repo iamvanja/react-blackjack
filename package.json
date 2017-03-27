@@ -21,6 +21,7 @@
         "chai-enzyme": "^0.6.1",
         "css-loader": "^0.27.3",
         "enzyme": "^2.8.0",
+        "esdoc": "^0.5.2",
         "eslint": "^3.18.0",
         "eslint-loader": "^1.7.0",
         "eslint-plugin-react": "^6.10.3",
@@ -39,6 +40,7 @@
         "start": "./node_modules/webpack-dashboard/bin/webpack-dashboard.js webpack-dev-server",
         "build": "NODE_ENV=production webpack -p --config webpack.config.js",
         "test": "mocha --compilers js:babel-core/register --recursive --require ./test/test-helper.js",
-        "test:watch": "npm run test -- --watch"
+        "test:watch": "npm run test -- --watch",
+        "docs": "./node_modules/.bin/esdoc -c .esdoc.json && open ./doc/index.html"
     }
 }
