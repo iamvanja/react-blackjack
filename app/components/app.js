@@ -200,7 +200,6 @@ class App extends Component {
 
         return (
             <div className="app">
-                <h1>Blackjack</h1>
                 <Info isWin={isWin} winPercentage={winPercentage} />
                 <Hand cards={dealerHand} score={dealerScore} />
                 <Hand cards={playerHand} score={playerScore} />

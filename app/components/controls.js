@@ -26,9 +26,19 @@ import React, { PropTypes } from 'react';
 const Controls = ({ dealDisabled, deal, hit, stand }) => {
     return (
         <div className="controls">
-            <button onClick={deal} disabled={dealDisabled}>DEAL</button>
-            <button onClick={hit} disabled={!dealDisabled}>HIT</button>
-            <button onClick={stand} disabled={!dealDisabled}>STAND</button>
+            <button className="deal" onClick={deal} disabled={dealDisabled}>
+                <i className="icon-right"></i>
+                <span>Deal</span>
+            </button>
+
+            <button className="hit" onClick={hit} disabled={!dealDisabled}>
+                <i className="icon-right"></i>
+                <span>Hit</span>
+            </button>
+            <button className="stand" onClick={stand} disabled={!dealDisabled}>
+                <i className="icon-down"></i>
+                <span>Stand</span>
+            </button>
         </div>
     );
 }

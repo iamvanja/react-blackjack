@@ -48,24 +48,5 @@ body {
         border-top: 1px solid lighten($line-color, 50%);
     }
 
-    // table edge (wood)
-    &:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        // blend with the inset box-shadow
-        // from parent element
-        z-index:-1;
-        height: 10%;
-        bottom: 0;
-        box-shadow: -1px -6px 16px -4px rgba(lighten(#000, 1%), 0.8);
-        // show bg-color while the image is loading
-        background-color: #271a11;
-        background-repeat: repeat;
-        background-image: url('/images/wood.jpg');
-        @media #{$retina} {
 
-            background-size: 200px 169px;
-        }
-    }
 }

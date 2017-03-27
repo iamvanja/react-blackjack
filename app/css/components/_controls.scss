@@ -1,0 +1,72 @@
+.controls {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:14%;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        margin:0;
+        border:0;
+        padding:0;
+        display:inline-block;
+        vertical-align:middle;
+        white-space:normal;
+        line-height:1;
+        &:focus {
+            outline:0;
+        }
+        width:60px;
+        height:60px;
+        border-radius: 60px;
+        border: 2px solid #fff;
+        font-size: 24px;
+        background: $button-primary-bg;
+        color: white;
+        line-height: 1;
+        position: relative;
+        margin-right: 8px;
+        cursor: pointer;
+        &:last-child {
+            margin-right:0;
+        }
+        &:disabled {
+            display:none;
+        }
+        &.stand {
+            background: $button-secondary-bg;
+        }
+        span {
+            position: absolute;
+            bottom:-20px;
+            width:100%;
+            left:0;
+            right:0;
+            font-size: 14px;
+            text-shadow: 0 1px 0 rgba(lighten(#000, 5%), 0.6);
+        }
+    }
+
+    // table edge (wood)
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        // blend with the inset box-shadow
+        z-index:-1;
+        height: 100%;
+        bottom: 0;top:0;
+        left:0;right:0;
+        box-shadow: -1px -6px 16px -4px rgba(lighten(#000, 1%), 0.8);
+        // show bg-color while the image is loading
+        background-color: #271a11;
+        background-repeat: repeat;
+        background-image: url('/images/wood.jpg');
+        @media #{$retina} {
+            background-size: 200px 169px;
+        }
+    }
+}

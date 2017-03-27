@@ -14,9 +14,9 @@ const Hand = ({ cards, score }) => {
     return (
         <div className="hand">
             {score &&
-                <p className="score">
-                    <strong>Score:</strong> {score}
-                </p>
+                <div className="score">
+                    <span className="score-value">{score}</span>
+                </div>
             }
             <div className="cards">
                 {cards.map((card, i) =>

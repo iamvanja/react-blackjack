@@ -23,10 +23,6 @@ describe('<App />', () => {
     it ('renders with `app` class', () => {
         expect(rendered.is('.app')).to.be.true;
     });
-    it('renders a single h1', () => {
-        expect(rendered.find('h1')).to.have.length(1);
-        expect(rendered.find('h1').text()).to.eq('Blackjack');
-    });
     it('renders <Info /> component', () => {
         expect(rendered.find('Info')).to.have.length(1);
     });

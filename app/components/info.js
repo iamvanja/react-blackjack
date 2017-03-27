@@ -30,14 +30,15 @@ const Info = ({ isWin, winPercentage }) => {
     return (
         <div className="info">
             { winPercentage &&
-                <p>
-                    <strong>Wins:</strong> {winPercentage}
-                </p>
+                <div className="win-percentage">
+                    wins
+                    <strong>{winPercentage}</strong>
+                </div>
             }
             { isWin !== undefined &&
-                <p>
-                    <strong>Outcome:</strong> {getOutcome(isWin)}
-                </p>
+                <div className="outcome">
+                    {getOutcome(isWin)}
+                </div>
             }
         </div>
     );

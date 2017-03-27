@@ -1,4 +1,7 @@
 .hand {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position:relative;
     .cards {
         display: flex;
         justify-content: center;
@@ -9,6 +12,8 @@
 
         .card {
             flex: 0 1 auto;
+            // overlap cards
+            margin-left:-70px;
             // guarantess some randomness
             &:nth-child(odd) {
                 transform: rotate(-2deg);
@@ -22,6 +27,25 @@
             &.C {
                 transform: rotate(1deg);
             }
+        }
+    }
+    .score {
+        text-align: center;
+        position:absolute;
+        width:100%;
+        top:0;
+        .score-value {
+            display:inline-block;
+            background: #fff;
+            width:40px;
+            line-height: 36px;
+            font-size: 16px;
+            height:40px;
+            border: 2px solid $primary-color;
+
+            border-radius: 40px;
+            color: $primary-color;
+            font-weight: bold;
         }
     }
 }

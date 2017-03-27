@@ -7,5 +7,8 @@ $body-bg-color: $primary-color;
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $text-color: lighten($body-bg-color, 70%);
 
+$button-primary-bg: #90b6dc;
+$button-secondary-bg: #f26348;
+
 // media queries
 $retina: "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
