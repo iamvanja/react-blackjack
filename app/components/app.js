@@ -79,15 +79,16 @@ class App extends Component {
         dealerHand.draw(deck.deal());
         playerHand.draw(deck.deal());
         // second card to dealer
-        // remains in the hand distance
-        // but we wont show it in the view
+        // remains in the hand instance
+        // but not in the view until
+        // the player stands
         dealerHand.draw(deck.deal());
 
         // set state to update the view
         this.setState((prevState, props) => ({
             playerHand: playerHand.cards,
-            // first card and the dummy card for
-            // the dealer's hand view
+            // first card and second dummy card
+            // for dealer's hand view
             dealerHand: [dealerHand.cards[0], {rank: 'dummy',  suit: ''}],
             playerScore: playerHand.scoreTotal,
             roundCount: ++prevState.roundCount,
