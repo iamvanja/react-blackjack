@@ -3,18 +3,25 @@
     padding-bottom: 50px;
     position:relative;
     .cards {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        align-self: auto;
-        flex-wrap: nowrap;
-        align-items: center;
+        // needed for react animations
+        // as it wraps animating elements
+        // in a span
+        > span {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-self: auto;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
 
+        // randomize
         .card {
             flex: 0 1 auto;
             // overlap cards
             margin-left:-70px;
-            // guarantess some randomness
+            // guarantees some randomness
+            // in positioning
             &:nth-child(odd) {
                 transform: rotate(-2deg);
             }
@@ -26,6 +33,21 @@
             }
             &.C {
                 transform: rotate(1deg);
+            }
+        }
+
+        // animations for adding/removing cards
+        .card {
+            transition: 0.2s $bezier;
+            &.list-enter {
+                transform: translate3d(100vw, -100vh, 0);
+            }
+            &.list-leave.list-leave-active {
+                transform: translate3d(0, -100vh, 0);
+            }
+            &.list-enter.list-enter-active,
+            &.list-leave  {
+                transform: translate3d(0, 0, 0);
             }
         }
     }

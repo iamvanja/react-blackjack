@@ -4,7 +4,7 @@ import Hand from './hand';
 import Controls from './controls';
 import { calculateWinPercentage } from '../game';
 
-const RESET_ROUND_TIME = 2000;
+const RESET_ROUND_TIME = 1500;
 
  /**
   * Entry point for the view layer of the app

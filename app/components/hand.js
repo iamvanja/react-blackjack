@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Card from './card';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 /**
  * Hand component where dealt cards are rendered.
@@ -19,13 +20,15 @@ const Hand = ({ cards, score }) => {
                 </div>
             }
             <div className="cards">
-                {cards.map((card, i) =>
-                    <Card
-                        rank={card.rank}
-                        suit={card.suit}
-                        key={i}
-                    />
-                )}
+                <CSSTransitionGroup transitionName="list" transitionEnterTimeout={100} transitionLeaveTimeout={200}>
+                    {cards.map((card, i) =>
+                        <Card
+                            rank={card.rank}
+                            suit={card.suit}
+                            key={i}
+                        />
+                    )}
+                </CSSTransitionGroup>
             </div>
         </div>
     );

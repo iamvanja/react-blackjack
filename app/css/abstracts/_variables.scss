@@ -12,3 +12,6 @@ $button-secondary-bg: #f26348;
 
 // media queries
 $retina: "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
+
+// various
+$bezier: cubic-bezier(0.16, 0.84, 0.32, 1.24);
