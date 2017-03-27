@@ -1,0 +1,81 @@
+.card {
+    color: black;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(lighten(#000, 5%), 0.5);
+    height: 200px;
+    width: 146px;
+
+    // hide suit (example S, C,...)
+    // presentation wll be replaced by
+    // symbols defined here
+    .suit {
+        font-size:0;
+    }
+    display: flex;
+    flex-direction: column;
+    .section {
+        &.top,
+        &.bottom {
+            flex: 0 1 auto;
+            padding-top: 6px;
+            span {
+                display: block;
+                font-weight: bold;
+                line-height: 24px;
+                height:24px;
+                &.rank {
+                    font-size: 24px;
+                }
+                &.suit {
+                    padding-left: 1px;
+                    &:after {
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+
+        &.center {
+            flex: 1 1 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            &:after {
+                font-size: 80px;
+            }
+        }
+
+        &.bottom {
+            transform: rotate(180deg);
+        }
+
+        // align properly rank and suit
+        // at the top and the bottom
+        .container {
+            max-width: 25%;
+            text-align: center;
+        }
+    }
+
+    // color for hearts and diamonds
+    &.H,
+    &.D {
+        color: #e40909;
+    }
+
+    // symbols for each suit
+    &.H .suit:after {
+        content: '\2665';
+    }
+    &.S .suit:after {
+        content: '\2660';
+    }
+    &.C .suit:after {
+        content: '\2663';
+    }
+    &.D .suit:after {
+        content: '\2666';
+    }
+}

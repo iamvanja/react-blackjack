@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 /**
  * Control component
@@ -26,9 +27,29 @@ import React, { PropTypes } from 'react';
 const Controls = ({ dealDisabled, deal, hit, stand }) => {
     return (
         <div className="controls">
-            <button onClick={deal} disabled={dealDisabled}>DEAL</button>
-            <button onClick={hit} disabled={!dealDisabled}>HIT</button>
-            <button onClick={stand} disabled={!dealDisabled}>STAND</button>
+            <CSSTransitionGroup transitionName="buttons" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
+                { !dealDisabled &&
+                    <div className="button-container">
+                        <button className="deal" onClick={deal}>
+                            <i className="icon-right"></i>
+                            <span>Deal</span>
+                        </button>
+                    </div>
+                }
+
+                { dealDisabled &&
+                    <div className="button-container">
+                        <button className="hit" onClick={hit}>
+                            <i className="icon-right"></i>
+                            <span>Hit</span>
+                        </button>
+                        <button className="stand" onClick={stand}>
+                            <i className="icon-down"></i>
+                            <span>Stand</span>
+                        </button>
+                    </div>
+                }
+            </CSSTransitionGroup>
         </div>
     );
 }

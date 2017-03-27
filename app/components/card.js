@@ -12,8 +12,19 @@ import React, { PropTypes } from 'react';
 const Info = ({ rank, suit }) => {
     return (
         <div className={`card ${suit}`}>
-            <div className="rank">{rank}</div>
-            <div className="suit">{suit}</div>
+            <div className="section top">
+                <div className="container">
+                    <span className="rank">{rank}</span>
+                    <span className="suit">{suit}</span>
+                </div>
+            </div>
+            <div className="section center suit">{suit}</div>
+            <div className="section bottom">
+                <div className="container">
+                    <span className="rank">{rank}</span>
+                    <span className="suit">{suit}</span>
+                </div>
+            </div>
         </div>
     );
 }
