@@ -4,9 +4,10 @@ import React, { PropTypes } from 'react';
   * Card component.
   *
   * @class      Info (name)
-  * @param      {Object}          props       Component properties
-  * @param      {String|Integer}  props.rank  Card's rank
-  * @param      {String}          props.suit  Card's suit
+  * @param      {Object}          props             Component properties
+  * @param      {String|Integer}  props.rank        Card's rank
+  * @param      {String}          props.suit        Card's suit
+  * @param      {Bool}            props.isFaceDown  Should card be facedown
   * @return     {ReactElement}    markup
   */
 const Info = ({ rank, suit, isFaceDown }) => {
@@ -39,7 +40,7 @@ Info.propTypes = {
         PropTypes.number,
     ]).isRequired,
     suit: PropTypes.string.isRequired,
-    isFaceDown: PropTypes.bool.isRequired,
+    isFaceDown: PropTypes.bool,
 };
 
 export default Info;

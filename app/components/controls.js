@@ -18,17 +18,18 @@ import CSSTransitionGroup from 'react-addons-css-transition-group';
  *
  * @class      Controls (name)
  * @param      {Object}       props               Component properties
- * @param      {Bool}         props.dealDisabled  Should deal button be disabled
+ * @param      {Bool}         props.inProgress    Is game in progress
+ * @param      {Bool}         props.gameOver      Are game's results shown
  * @param      {Function}     props.deal          Run when Deal button is clicked
  * @param      {Function}     props.hit           Run when Hit button is clicked
  * @param      {Function}     props.stand         Run when Stand button is clicked
  * @return     {ReactElement} markup
  */
-const Controls = ({ dealDisabled, deal, hit, stand }) => {
+const Controls = ({ inProgress, gameOver, deal, hit, stand }) => {
     return (
         <div className="controls">
             <CSSTransitionGroup transitionName="buttons" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
-                { !dealDisabled &&
+                { !inProgress && !gameOver &&
                     <div className="button-container">
                         <button className="deal" onClick={deal}>
                             <i className="icon-right"></i>
@@ -37,13 +38,18 @@ const Controls = ({ dealDisabled, deal, hit, stand }) => {
                     </div>
                 }
 
-                { dealDisabled &&
+                {/*
+                  * Show game buttons when the game is in progress or
+                  * the game is over (displaying results) - in that case,
+                  * disable them
+                  */}
+                { (inProgress || (!inProgress && gameOver)) &&
                     <div className="button-container">
-                        <button className="hit" onClick={hit}>
+                        <button className="hit" onClick={hit} disabled={gameOver}>
                             <i className="icon-right"></i>
                             <span>Hit</span>
                         </button>
-                        <button className="stand" onClick={stand}>
+                        <button className="stand" onClick={stand} disabled={gameOver}>
                             <i className="icon-down"></i>
                             <span>Stand</span>
                         </button>
@@ -58,7 +64,8 @@ const Controls = ({ dealDisabled, deal, hit, stand }) => {
  * Defines property types for this component.
  */
 Controls.propTypes = {
-    dealDisabled: PropTypes.bool.isRequired,
+    inProgress: PropTypes.bool.isRequired,
+    gameOver: PropTypes.bool.isRequired,
     deal: PropTypes.func.isRequired,
     hit: PropTypes.func.isRequired,
     stand: PropTypes.func.isRequired,
