@@ -38,7 +38,8 @@
 
         // animations for adding/removing cards
         .card {
-            transition: 0.2s $card-deal-bezier;
+            transition: $card-enter-duration $card-deal-bezier;
+            transition-delay: 0;
             &.list-enter {
                 transform: translate3d(100vw, -100vh, 0);
             }
@@ -77,6 +78,39 @@
             border-radius: 40px;
             color: $primary-color;
             font-weight: bold;
+        }
+    }
+
+    // deal first two cards to dealer and player with a delay
+    &[data-dealing="true"] {
+        &[data-owner="dealer"] {
+            .card {
+                &:first-child {
+                    transition-delay: $card-deal-delay * 1;
+                }
+                &:nth-child(2) {
+                    transition-delay: $card-deal-delay * 3;
+                }
+            }
+        }
+        &[data-owner="player"] {
+            .card {
+                &:first-child {
+                    transition-delay: 0s;
+                }
+                &:nth-child(2) {
+                    transition-delay: $card-deal-delay * 2;
+                }
+            }
+        }
+    }
+
+    // add delay to rest of the dealer's card once player stands
+    &[data-owner="dealer"] {
+        @for $i from 1 through 8 {
+            .card:nth-child(#{$i+3}) {
+                transition-delay: $i * $card-deal-delay;
+            }
         }
     }
 }

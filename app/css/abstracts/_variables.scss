@@ -10,9 +10,14 @@ $text-color: lighten($body-bg-color, 70%);
 $button-primary-bg: #90b6dc;
 $button-secondary-bg: #f26348;
 
+// card
+$card-enter-duration: 0.2s;
+$card-deal-delay: 0.15s;
+$card-deal-bezier: cubic-bezier(0.16, 0.84, 0.32, 1.04);
+
 // media queries
 $retina: "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
 
 // various
 $bezier: cubic-bezier(0.16, 0.84, 0.32, 1.24);
-$card-deal-bezier: cubic-bezier(0.16, 0.84, 0.32, 1.04);
+
