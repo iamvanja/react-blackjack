@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 /**
  * Info component where game info is rendered.
@@ -27,6 +28,21 @@ const Info = ({ isWin, winPercentage }) => {
         }
     }
 
+    /**
+     * { function_description }
+     *
+     * @param      {boolean}        isWin   Indicates if player won.
+     * @return     {ReactElement}   markup
+     */
+    const renderOutcome = (isWin) => {
+        return (
+            isWin !== undefined &&
+            <div className="outcome" data-win={isWin}>
+                {getOutcome(isWin)}
+            </div>
+        );
+    }
+
     return (
         <div className="info">
             { winPercentage &&
@@ -35,11 +51,9 @@ const Info = ({ isWin, winPercentage }) => {
                     <strong>{winPercentage}</strong>
                 </div>
             }
-            { isWin !== undefined &&
-                <div className="outcome">
-                    {getOutcome(isWin)}
-                </div>
-            }
+            <CSSTransitionGroup transitionName="outcome" transitionEnterTimeout={2000} transitionLeaveTimeout={300}>
+                { renderOutcome(isWin) }
+            </CSSTransitionGroup>
         </div>
     );
 }

@@ -4,7 +4,7 @@ import Hand from './hand';
 import Controls from './controls';
 import { calculateWinPercentage } from '../game';
 
-const RESET_ROUND_TIME = 1500;
+const RESET_ROUND_TIME = 3000;
 
  /**
   * Entry point for the view layer of the app
@@ -213,8 +213,8 @@ class App extends Component {
         return (
             <div className="app">
                 <Info isWin={isWin} winPercentage={winPercentage} />
-                <Hand cards={dealerHand} score={dealerScore} />
-                <Hand cards={playerHand} score={playerScore} />
+                <Hand cards={dealerHand} score={dealerScore} inProgress={inProgress} owner="dealer" />
+                <Hand cards={playerHand} score={playerScore} inProgress={inProgress} owner="player" />
                 <Controls
                     inProgress={inProgress}
                     gameOver={isWin !== undefined}

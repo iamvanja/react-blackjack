@@ -1,18 +1,41 @@
 $primary-color: #114602;
 $secondary-color: #EEE8AA;
+$success-color: #008000;
+$danger-color: #f00;
+$neutral-info-color: #808080;
 
 $body-bg-color: $primary-color;
 
 // Fonts
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
-$text-color: lighten($body-bg-color, 70%);
+$text-color: $secondary-color;
 
 $button-primary-bg: #90b6dc;
 $button-secondary-bg: #f26348;
+
+// card (hand)
+$card-enter-duration: 0.4s;
+$card-deal-delay: 0.15s;
+$card-flip-delay: 0.1s;
+$card-deal-bezier: cubic-bezier(0.16, 0.84, 0.32, 1.04);
+$card-rotate-hearts: rotate(-1deg);
+$card-rotate-clubs: rotate(1deg);
+$card-rotate-odd: rotate(-2deg);
+$card-rotate-even: rotate(2deg);
+
+// score (hand)
+$score-enter-duration: 0.2s;
+$score-enter-delay: 0.3s;
+$score-leave-duration: 0.1s;
+
+// outcome (info)
+$outcome-enter-duration: 0.3s;
+$outcome-enter-delay: 0.6s;
+$outcome-leave-duration: 0.2s;
 
 // media queries
 $retina: "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
 
 // various
 $bezier: cubic-bezier(0.16, 0.84, 0.32, 1.24);
-$card-deal-bezier: cubic-bezier(0.16, 0.84, 0.32, 1.04);
+
