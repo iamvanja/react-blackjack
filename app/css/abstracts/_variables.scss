@@ -5,15 +5,20 @@ $body-bg-color: $primary-color;
 
 // Fonts
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
-$text-color: lighten($body-bg-color, 70%);
+$text-color: $secondary-color;
 
 $button-primary-bg: #90b6dc;
 $button-secondary-bg: #f26348;
 
 // card
-$card-enter-duration: 0.2s;
+$card-enter-duration: 0.4s;
 $card-deal-delay: 0.15s;
+$card-flip-delay: 0.1s;
 $card-deal-bezier: cubic-bezier(0.16, 0.84, 0.32, 1.04);
+$card-rotate-hearts: rotate(-1deg);
+$card-rotate-clubs: rotate(1deg);
+$card-rotate-odd: rotate(-2deg);
+$card-rotate-even: rotate(2deg);
 
 // media queries
 $retina: "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";

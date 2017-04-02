@@ -14,43 +14,6 @@
             flex-wrap: nowrap;
             align-items: center;
         }
-
-        // randomize
-        .card {
-            flex: 0 1 auto;
-            // overlap cards
-            margin-left:-70px;
-            // guarantees some randomness
-            // in positioning
-            &:nth-child(odd) {
-                transform: rotate(-2deg);
-            }
-            &:nth-child(even) {
-                transform: rotate(2deg);
-            }
-            &.H {
-                transform: rotate(-1deg);
-            }
-            &.C {
-                transform: rotate(1deg);
-            }
-        }
-
-        // animations for adding/removing cards
-        .card {
-            transition: $card-enter-duration $card-deal-bezier;
-            transition-delay: 0;
-            &.list-enter {
-                transform: translate3d(100vw, -100vh, 0);
-            }
-            &.list-leave.list-leave-active {
-                transform: translate3d(0, -100vh, 0);
-            }
-            &.list-enter.list-enter-active,
-            &.list-leave  {
-                transform: translate3d(0, 0, 0);
-            }
-        }
     }
     // push hand a bit so the card
     // placement looks more random
@@ -78,39 +41,6 @@
             border-radius: 40px;
             color: $primary-color;
             font-weight: bold;
-        }
-    }
-
-    // deal first two cards to dealer and player with a delay
-    &[data-dealing="true"] {
-        &[data-owner="dealer"] {
-            .card {
-                &:first-child {
-                    transition-delay: $card-deal-delay * 1;
-                }
-                &:nth-child(2) {
-                    transition-delay: $card-deal-delay * 3;
-                }
-            }
-        }
-        &[data-owner="player"] {
-            .card {
-                &:first-child {
-                    transition-delay: 0s;
-                }
-                &:nth-child(2) {
-                    transition-delay: $card-deal-delay * 2;
-                }
-            }
-        }
-    }
-
-    // add delay to rest of the dealer's card once player stands
-    &[data-owner="dealer"] {
-        @for $i from 1 through 8 {
-            .card:nth-child(#{$i+3}) {
-                transition-delay: $i * $card-deal-delay;
-            }
         }
     }
 }

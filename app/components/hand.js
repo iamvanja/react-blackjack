@@ -46,12 +46,12 @@ class Hand extends Component {
                     </div>
                 }
                 <div className="cards">
-                    <CSSTransitionGroup transitionName="list" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
+                    <CSSTransitionGroup transitionName="list" transitionEnterTimeout={800} transitionLeaveTimeout={300}>
                         {cards.map((card, i) =>
                             <Card
                                 rank={card.rank}
                                 suit={card.suit}
-                                isFaceDown={card.rank === 'dummy'}
+                                isPrivate={card.rank === 'dummy'}
                                 key={i}
                             />
                         )}
