@@ -43,7 +43,7 @@ class Hand extends Component {
     /**
      * Render conditionally score element.
      *
-     * @param      {undefined||Integer}  score   The hand's score
+     * @param      {undefined|Integer}  score   The hand's score
      * @return     {ReactElement}        markup
      */
     renderScore(score) {
