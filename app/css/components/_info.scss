@@ -3,8 +3,6 @@
     top:0;left:0;right:0;
     width:100%;
     height:100px;
-    // show this component under `body`'s shadow
-    z-index: -1;
     .win-percentage {
         position:absolute;
         top:0;right:0;
@@ -18,7 +16,49 @@
     }
     .outcome {
         text-align: center;
-        line-height: 100px;
+        line-height: 90px;
         font-size: 40px;
+        position: relative;
+        z-index:10;
+        text-shadow: 0 1px 0 rgba(#000, 0.6);
+        letter-spacing: 10px;
+        background: rgba($neutral-info-color, 0.6);
+        border-bottom:1px solid rgba($neutral-info-color, 0.4);
+        @keyframes animate-bg {
+            0%{background-position:50% 0%}
+            50%{background-position:50% 100%}
+            100%{background-position:50% 0%}
+        }
+        &[data-win="true"] {
+            background: linear-gradient(180deg, rgba(#b60f61, 0.8), rgba(#f2702d, 0.8), rgba(#2db5a7, 0.8), rgba(#be3df4, 0.8), rgba($success-color, 0.8), rgba(#f2c23a, 0.8));
+            background-size: 8000% 8000%;
+            animation: animate-bg $outcome-enter-duration*10 linear infinite;
+        }
+        &[data-win="false"] {
+            background: rgba($danger-color, 0.6);
+            border-color: rgba($danger-color, 0.2);
+        }
+
+        &.outcome-enter {
+            transform: translate3d(0, 25vh, 0);
+            opacity: 0;
+            &.outcome-enter-active {
+                transition: $outcome-enter-duration ease-out $outcome-enter-delay;
+                transition-property: opacity, transform;
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        &.outcome-leave {
+            // those two properties are already set
+            // opacity:1;
+            // transform: translate3d(0, 0, 0);
+            &.outcome-leave-active {
+                transition: $outcome-leave-duration ease-in;
+                transition-property: opacity, transform;
+                transform: translate3d(0, 25vh, 0);
+                opacity: 0;
+            }
+        }
     }
 }

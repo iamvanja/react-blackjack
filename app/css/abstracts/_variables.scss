@@ -1,5 +1,8 @@
 $primary-color: #114602;
 $secondary-color: #EEE8AA;
+$success-color: #008000;
+$danger-color: #f00;
+$neutral-info-color: #808080;
 
 $body-bg-color: $primary-color;
 
@@ -24,6 +27,12 @@ $card-rotate-even: rotate(2deg);
 $score-enter-duration: 0.2s;
 $score-enter-delay: 0.3s;
 $score-leave-duration: 0.1s;
+
+// outcome (info)
+$outcome-enter-duration: 0.3s;
+$outcome-enter-delay: 0.6s;
+$outcome-leave-duration: 0.2s;
+
 // media queries
 $retina: "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
 
