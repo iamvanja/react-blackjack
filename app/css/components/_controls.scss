@@ -12,12 +12,6 @@
         vertical-align:middle;
         white-space:normal;
         line-height:1;
-        &:focus {
-            outline:0;
-        }
-        &:disabled {
-            opacity: 0.2;
-        }
         width:60px;
         height:60px;
         border-radius: 60px;
@@ -29,6 +23,15 @@
         position: relative;
         margin-right: 8px;
         cursor: pointer;
+        &:focus {
+            outline:0;
+        }
+        &:disabled {
+            opacity: 0.2;
+        }
+        &:active {
+            transform: translate3d(0, 1px, 0);
+        }
         &:last-child {
             margin-right:0;
         }
