@@ -9,8 +9,9 @@
         padding: 8px;
         text-align: center;
         font-size: 16px;
+        z-index:-1;
         strong {
-            display:block;
+            display: block;
             font-size: 20px;
         }
     }
