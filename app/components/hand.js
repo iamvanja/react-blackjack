@@ -16,11 +16,21 @@ import CSSTransitionGroup from 'react-addons-css-transition-group';
 class Hand extends Component {
     constructor(props) {
         super(props);
+
+        /**
+         * @type {object}
+         * @property {Bool} isDealing
+         */
         this.state = {
             isDealing: false,
         }
     }
 
+    /**
+     * Calculate and change `isDealing` state depending on
+     * the received props.
+     *
+     */
     componentWillReceiveProps(nextProps) {
         const nextIsDealing = (nextProps.cards.length <= 2) && nextProps.inProgress;
         if (this.state.isDealing !== nextIsDealing) {
@@ -28,6 +38,18 @@ class Hand extends Component {
                 isDealing: nextIsDealing,
             })
         }
+    }
+
+    /**
+     * Render conditionally score element.
+     *
+     * @param      {undefined||Integer}  score   The hand's score
+     * @return     {ReactElement}        markup
+     */
+    renderScore(score) {
+        return (
+            score && <span className="score-value">{score}</span>
+        )
     }
 
     render() {
@@ -38,13 +60,14 @@ class Hand extends Component {
             'data-dealing': isDealing,
             'data-owner': owner,
         };
+
         return (
             <div className="hand" {...dataAttributes}>
-                {score &&
-                    <div className="score">
-                        <span className="score-value">{score}</span>
-                    </div>
-                }
+                <div className="score">
+                    <CSSTransitionGroup transitionName="pop" transitionEnterTimeout={500} transitionLeaveTimeout={100}>
+                        {this.renderScore(score)}
+                    </CSSTransitionGroup>
+                </div>
                 <div className="cards">
                     <CSSTransitionGroup transitionName="list" transitionEnterTimeout={800} transitionLeaveTimeout={300}>
                         {cards.map((card, i) =>

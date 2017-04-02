@@ -7,7 +7,7 @@ import React, { PropTypes } from 'react';
   * @param      {Object}          props             Component properties
   * @param      {String|Integer}  props.rank        Card's rank
   * @param      {String}          props.suit        Card's suit
-  * @param      {Bool}            props.isPrivate     Should rank & suit be rendered
+  * @param      {Bool}            props.isPrivate   Should rank & suit be rendered
   * @return     {ReactElement}    markup
   */
 const Card = ({ rank, suit, isPrivate }) => {

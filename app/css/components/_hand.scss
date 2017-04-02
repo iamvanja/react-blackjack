@@ -41,6 +41,21 @@
             border-radius: 40px;
             color: $primary-color;
             font-weight: bold;
+
+            &.pop-enter {
+                transform: translate3d(0, 50px, 0) rotate(180deg) scale(0.01);
+                &.pop-enter-active {
+                    transition: transform $score-enter-duration $bezier $score-enter-delay;
+                    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+                }
+            }
+            &.pop-leave {
+                opacity:1;
+                &.pop-leave-active {
+                    transition: opacity $score-leave-duration;
+                    opacity: 0;
+                }
+            }
         }
     }
 }
