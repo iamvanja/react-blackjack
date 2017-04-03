@@ -22,9 +22,9 @@ body {
     position:relative;
     background-color: $body-bg-color;
     background-repeat: repeat;
-    background-image: url('/images/bg.png');
+    background-image: url('images/bg.png');
     @media #{$retina} {
-        background-image: url('/images/bg-retina.png');
+        background-image: url('images/bg-retina.png');
         // todo: include ability in the build
         // system to read image dimension
         background-size: 100px 100px;

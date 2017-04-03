@@ -2,14 +2,15 @@
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const DashboardPlugin = require('webpack-dashboard/plugin');
+const isProduction = process.env.NODE_ENV === 'production';
 
-const config = {
+let config = {
     entry: [
         './app/index.js',
     ],
     output: {
         path: __dirname + '/build',
-        filename: 'bundle.js'
+        filename: 'bundle.js',
     },
     module: {
         loaders: [
@@ -26,18 +27,36 @@ const config = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            sourceMap: true,
+                            sourceMap: isProduction ? false : true,
                         }
                     },
                     'postcss-loader',
+                    'resolve-url-loader',
                     {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: true,
+                            outputStyle: isProduction ? 'compressed' : 'expanded',
                         }
                     },
-                ]
-            }
+                ],
+            },
+            {
+                test: /\.(jpe?g|png|gif)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 1000,
+                    name: 'images/[name].[ext]'
+                }
+            },
+            {
+                test: /\.(svg|eot|ttf|woff|woff2)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 1000,
+                    name: 'fonts/[name].[ext]'
+                }
+            },
         ]
     },
     devServer: {
@@ -49,11 +68,20 @@ const config = {
         new webpack.HotModuleReplacementPlugin(),
         new DashboardPlugin(),
     ],
-    devtool: 'eval-source-map',
+    // source map in ext file in production and cheap fast source maps in dev
+    devtool: isProduction ? 'hidden-source-map' : 'eval-source-map',
+    // do not continue on error
+    bail: true,
 };
 
-if (process.env.NODE_ENV === 'production') {
-    // production-specific build options go here
+// additional config for production build
+if (isProduction) {
+    // add polyfills
+    config.entry.unshift('./config/polyfills');
+
+    // do not use devServer or dev plugins
+    delete config.devServer;
+    config.plugins = [];
 }
 
 module.exports = config;

@@ -114,7 +114,7 @@
         // show bg-color while the image is loading
         background-color: #271a11;
         background-repeat: repeat;
-        background-image: url('/images/wood.jpg');
+        background-image: url('images/wood.jpg');
         @media #{$retina} {
             background-size: 200px 169px;
         }
