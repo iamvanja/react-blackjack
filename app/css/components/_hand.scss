@@ -3,42 +3,42 @@
     padding-bottom: 50px;
     position:relative;
     .cards {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
         // needed for react animations
         // as it wraps animating elements
         // in a span
         > span {
+            flex: 1;
             display: flex;
-            justify-content: center;
-            align-content: center;
-            align-self: auto;
-            flex-wrap: nowrap;
             align-items: center;
+            justify-content: center;
         }
     }
     // push hand a bit so the card
     // placement looks more random
     // between two hands
     .cards {
-        margin-left: 30px;
-    }
-    + .hand .cards {
-        margin-left: 60px;
+        margin-left: 10%;
     }
     .score {
         text-align: center;
         position:absolute;
+        height: $score-height;
         width:100%;
-        top:0;
+        top: 50%;
+        margin-top: ($score-height + ($card-height/2)) * -1.2; //(score-height + (card-height/2))
         .score-value {
             display:inline-block;
             background: #fff;
-            width:40px;
+            width:$score-height;
             line-height: 36px;
             font-size: 16px;
-            height:40px;
+            height:$score-height;
             border: 2px solid $primary-color;
 
-            border-radius: 40px;
+            border-radius: $score-height;
             color: $primary-color;
             font-weight: bold;
 
@@ -56,6 +56,28 @@
                     opacity: 0;
                 }
             }
+        }
+    }
+}
+
+@media #{$tablet-down} {
+    .hand {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+@media #{$tablet} {
+    .hand {
+        .score {
+            margin-top: ($score-height + ($card-height-smaller/2)) * -1.05;
+        }
+    }
+}
+@media #{$phone} {
+    .hand {
+        .score {
+            margin-top: ($score-height + ($card-height-small/2)) * -1.05;
         }
     }
 }

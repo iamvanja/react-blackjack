@@ -212,16 +212,24 @@ class App extends Component {
 
         return (
             <div className="app">
-                <Info isWin={isWin} winPercentage={winPercentage} />
-                <Hand cards={dealerHand} score={dealerScore} inProgress={inProgress} owner="dealer" />
-                <Hand cards={playerHand} score={playerScore} inProgress={inProgress} owner="player" />
-                <Controls
-                    inProgress={inProgress}
-                    gameOver={isWin !== undefined}
-                    deal={() => this.onDeal()}
-                    hit={() => this.onHit()}
-                    stand={() => this.onStand()}
-                />
+                <header>
+                    <Info isWin={isWin} winPercentage={winPercentage} />
+                </header>
+                <section role="main">
+                    <Hand cards={dealerHand} score={dealerScore} inProgress={inProgress} owner="dealer" />
+                    <Hand cards={playerHand} score={playerScore} inProgress={inProgress} owner="player" />
+                </section>
+                <footer>
+                    <nav>
+                        <Controls
+                            inProgress={inProgress}
+                            gameOver={isWin !== undefined}
+                            deal={() => this.onDeal()}
+                            hit={() => this.onHit()}
+                            stand={() => this.onStand()}
+                        />
+                    </nav>
+                </footer>
             </div>
         );
     }
