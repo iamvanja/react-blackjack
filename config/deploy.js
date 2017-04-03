@@ -1,4 +1,4 @@
-'user strict';
+'use strict';
 
 const shell = require('shelljs');
 const deployInfo = require('../package').deploy;
