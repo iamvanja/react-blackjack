@@ -14,7 +14,7 @@ describe('<Hand />', () => {
         });
         it('does not render score when not passed', () => {
             let rendered = shallow(<Hand cards={cards} />);
-            expect(rendered.find('.score')).to.have.length(0);
+            expect(rendered.find('.score-value')).to.have.length(0);
         });
     });
 

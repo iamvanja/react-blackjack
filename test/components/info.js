@@ -8,13 +8,13 @@ describe('<Info />', () => {
 
     it ('renders the game outcome', () => {
         let rendered = shallow(<Info isWin={true} winPercentage={false} />);
-        expect(rendered).to.include.text('WIN!');
+        expect(rendered.find('.outcome')).to.include.text('WIN!');
 
         rendered = shallow(<Info isWin={false} winPercentage={false} />);
-        expect(rendered).to.include.text('LOST!');
+        expect(rendered.find('.outcome')).to.include.text('LOST!');
 
         rendered = shallow(<Info isWin={null} winPercentage={false} />);
-        expect(rendered).to.include.text('PUSH!');
+        expect(rendered.find('.outcome')).to.include.text('PUSH!');
 
         rendered = shallow(<Info isWin={undefined} winPercentage={false} />);
         expect(rendered.find('.outcome').length).to.be.eq(0);
