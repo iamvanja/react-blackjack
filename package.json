@@ -49,7 +49,7 @@
         "test": "mocha --compilers js:babel-core/register --recursive --require ./test/test-helper.js",
         "test:watch": "npm run test -- --watch",
         "docs": "./node_modules/.bin/esdoc -c .esdoc.json && open ./doc/index.html",
-        "deploy": "node config/deploy"
+        "deploy": "npm run test && npm run build && node config/deploy"
     },
     "deploy": {
         "src": "build/",

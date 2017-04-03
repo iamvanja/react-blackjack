@@ -50,7 +50,7 @@ if (!user) {
     return log.fatal('Please set RSYNC_USER in your /.env file or as an ENV var. Aborting.');
 }
 if (helpers.isGitDirty()) {
-    log.error("Please make sure you comitted everything. Deployment is not possible because it creates inconsistency between the repo and the files on production.")
+    log.error("Please make sure you committed everything. Deployment is not possible because it creates inconsistency between the repo and the files on production.")
     return log.fatal('No dirty pushing is allowed! Aborting.');
 }
 if (!helpers.isMasterBranch()) {
