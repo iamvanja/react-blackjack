@@ -44,8 +44,8 @@ Aside from third-party code listed in `package.json`, this third-party material/
 ### To-do
 - [ ] Write more tests
 - [ ] Potentially further encapsulate game logic in the Game class
-- [ ] Optimize for mobile / small screen
-- [ ] Implement main layout based on Flexbox
+- [x] Optimize for mobile / small screen
+- [x] Implement main layout based on Flexbox
 - [ ] Implement better production build (image optimization, index.html,...)
 - [ ] Animate dealer's second card flip
 - [x] Animate game outcome; deck score

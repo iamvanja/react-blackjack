@@ -1,13 +1,13 @@
 .card {
     color: #000;
-    height: 200px;
-    width: 146px;
+    height: $card-height;
+    width: $card-width;
 
     position: relative;
     perspective: 600px;
 
     // overlap cards
-    margin-left:-70px;
+    margin-left: $card-width / -2;
 
     .front,
     .back {
@@ -138,3 +138,43 @@
         }
     }
 }
+
+@media #{$tablet} {
+    .card {
+        height: $card-height-smaller;
+        width: $card-width-smaller;
+        margin-left: $card-width-smaller/-2;
+    }
+}
+@media #{$phone} {
+    .card {
+        height: $card-height-small;
+        width: $card-width-small;
+        margin-left: $card-width-small/-2;
+        .front {
+            .section {
+                &.top,
+                &.bottom {
+                    span {
+                        line-height: 16px;
+                        height:16px;
+                        &.rank {
+                            font-size: 16px;
+                        }
+                        &.suit {
+                            &:after {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+                &.center {
+                    &:after {
+                        font-size: 40px;
+                    }
+                }
+            }
+        }
+    }
+}
+

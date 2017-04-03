@@ -1,9 +1,16 @@
 .controls {
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:14%;
+    width: 100%;
+    height: 140px;
+    position: relative;
 
+    .button-container {
+        width:100%;
+        height:100%;
+        text-align: center;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
     button {
         margin:0;
         border:0;
@@ -61,15 +68,6 @@
         }
     }
 
-    .button-container {
-        position:absolute;
-        width:100%;
-        height:100%;
-        text-align: center;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-    }
     // animations for control buttons
     .button-container {
         button {
@@ -118,5 +116,11 @@
         @media #{$retina} {
             background-size: 200px 169px;
         }
+    }
+}
+
+@media #{$tablet} {
+    .controls {
+        height: 120px;
     }
 }
