@@ -1,6 +1,6 @@
 # Blackjack
 
-This is a blackjack app built using ES6 classes as and few helper functions for game logic which are then passed to [React](https://facebook.github.io/react/) as a view layer. The build tool used is [Webpack](https://webpack.github.io/).
+This is a blackjack app built using ES6 classes for game logic which are then rendered using [React](https://facebook.github.io/react/) as a view layer. The build tool used is [Webpack](https://webpack.github.io/).
 
 <p align="center">
     <img src="https://media.giphy.com/media/3ohzdQUcLBMpfxdAe4/giphy.gif" alt="Blackjack GIF">
